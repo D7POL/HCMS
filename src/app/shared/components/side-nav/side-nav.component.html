@@ -1,0 +1,15 @@
+<nav [class.w-60]="!collapsed" [class.w-16]="collapsed" class="transition-all duration-300 bg-white border-r h-full py-3 shadow-sm">
+  <ul class="space-y-1">
+    <li *ngFor="let it of items">
+      <a [routerLink]="it.link" 
+         class="flex items-center gap-3 px-3 py-3 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 rounded-lg mx-2 group"
+         [class.justify-center]="collapsed"
+         [class.justify-start]="!collapsed">
+        <span class="material-icons text-xl">{{ it.icon }}</span>
+        <span *ngIf="!collapsed" class="text-sm font-medium">{{ it.label }}</span>
+      </a>
+    </li>
+  </ul>
+  <div class="mt-6 px-3 text-xs text-gray-400 font-medium" *ngIf="!collapsed">Navigation</div>
+</nav>
+

@@ -1,0 +1,42 @@
+<div class="grid grid-cols-12 gap-4">
+  <section class="col-span-12">
+    <div class="bg-white rounded-xl shadow p-4 flex items-center justify-between">
+      <button (click)="prev()" class="p-2 hover:bg-gray-100 rounded">
+        <span class="material-icons">chevron_left</span>
+      </button>
+      <div class="text-center">
+        <div class="text-xl font-semibold">{{ news[newsIndex].title }}</div>
+        <div class="text-gray-600">{{ news[newsIndex].excerpt }}</div>
+      </div>
+      <button (click)="next()" class="p-2 hover:bg-gray-100 rounded">
+        <span class="material-icons">chevron_right</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="col-span-12 md:col-span-8 space-y-4">
+    <div class="bg-white rounded-xl shadow">
+      <div class="p-4 border-b font-medium">Nächste Termine</div>
+      <ul class="divide-y">
+        <li *ngFor="let ap of nextAppointments" class="p-4 flex items-center justify-between">
+          <div>
+            <div class="font-medium">{{ ap.department }} - {{ ap.hospital }}</div>
+            <div class="text-sm text-gray-600">{{ ap.dateTime | date:'medium' }}</div>
+          </div>
+          <span class="text-sm text-gray-500">ID: {{ ap.id }}</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <aside class="col-span-12 md:col-span-4">
+    <div class="bg-white rounded-xl shadow p-4">
+      <div class="font-medium mb-2">Hausarzt</div>
+      <div class="text-sm">{{ doctor.fullName }}</div>
+      <div class="text-sm text-gray-600">{{ doctor.specialty }} - {{ doctor.hospital }}</div>
+      <div class="text-sm text-gray-600">{{ doctor.phone }}</div>
+    </div>
+  </aside>
+</div>
+
+

@@ -1,0 +1,13 @@
+<div class="h-screen w-screen bg-gray-50 flex flex-col overflow-hidden">
+  <app-header (toggleSidenav)="collapsed = !collapsed"></app-header>
+  <div class="flex flex-1 overflow-hidden">
+    <app-side-nav [collapsed]="collapsed"></app-side-nav>
+    <main class="flex-1 overflow-auto bg-gray-50">
+      <div class="p-6">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>
+
+

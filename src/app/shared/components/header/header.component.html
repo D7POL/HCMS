@@ -1,0 +1,30 @@
+<header class="h-16 bg-white border-b shadow-sm flex items-center justify-between px-6">
+  <div class="flex items-center gap-4">
+    <button (click)="toggleSidenav.emit()" 
+            class="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group"
+            [attr.aria-label]="'Toggle navigation'">
+      <span class="material-icons text-gray-600 group-hover:text-gray-800">menu</span>
+    </button>
+    <app-logo></app-logo>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <button class="relative p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group" 
+            aria-label="Notifications">
+      <span class="material-icons text-gray-600 group-hover:text-gray-800">notifications</span>
+      <span class="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full border-2 border-white"></span>
+    </button>
+
+    <div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+      <img *ngIf="auth.getCurrentUser()?.avatarUrl" 
+           [src]="auth.getCurrentUser()?.avatarUrl" 
+           class="h-8 w-8 rounded-full border-2 border-gray-200" 
+           [alt]="auth.getCurrentUser()?.firstName + ' avatar'" />
+      <div class="flex flex-col">
+        <span class="text-sm font-medium text-gray-900">{{ auth.getCurrentUser()?.firstName }}</span>
+        <span class="text-xs text-gray-500">{{ auth.getCurrentUser()?.lastName }}</span>
+      </div>
+    </div>
+  </div>
+</header>
+
