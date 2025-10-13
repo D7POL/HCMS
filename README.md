@@ -1,27 +1,124 @@
-# EnabizFrontend
+# e-Nabız Frontend - Healthcare Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+Ein modernes Angular Frontend für ein Gesundheitsdaten-Dashboard, inspiriert von der türkischen e-Nabız Plattform.
 
-## Development server
+## 🚀 Schnellstart
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Voraussetzungen
+- **Node.js** (Version 18.x oder höher) - [Download hier](https://nodejs.org/)
+- **npm** (kommt mit Node.js)
 
-## Code scaffolding
+### Installation & Start
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Repository klonen:**
+```bash
+git clone https://github.com/D7POL/HCMS.git
+cd HCMS
+```
 
-## Build
+2. **Dependencies installieren:**
+```bash
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Development Server starten:**
+```bash
+npm start
+# oder
+npx ng serve --open
+```
 
-## Running unit tests
+4. **Browser öffnen:**
+- URL: `http://localhost:4200/auth/login`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🔐 Test-Logins
 
-## Running end-to-end tests
+| Benutzername | Passwort |
+|-------------|----------|
+| `ayse`      | `ayse123` |
+| `mehmet`    | `mehmet123` |
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠️ Technologien
 
-## Further help
+- **Angular 18** mit TypeScript
+- **TailwindCSS** für Styling
+- **Material Icons** für UI-Elemente
+- **Angular Router** mit lazy loading
+- **Reactive Forms** für Login
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📱 Features
+
+- ✅ **Mock Authentication** mit 2 Test-Usern
+- ✅ **Responsive Dashboard** mit Side-Navigation
+- ✅ **News Carousel** mit Navigation
+- ✅ **Terminübersicht** (nächste 3 Termine)
+- ✅ **Hausarzt-Informationen**
+- ✅ **Kollabierbare Navigation** (Icons ↔ Namen)
+- ✅ **Modern UI** mit Hover-Effekten
+
+## 🗂️ Projektstruktur
+
+```
+src/
+├── app/
+│   ├── core/           # Services, Models, Guards
+│   ├── features/       # Feature Modules
+│   │   ├── auth/       # Login/Authentication
+│   │   └── dashboard/  # Dashboard & Home
+│   └── shared/         # Wiederverwendbare Komponenten
+│       └── components/ # Header, SideNav, Logo
+```
+
+## 🎨 Design
+
+- **Farbschema**: Türkische Gesundheitsfarben (Blau/Grün)
+- **Layout**: Header + Sidebar + Main Content
+- **Icons**: Material Design Icons
+- **Responsive**: Mobile-first Ansatz
+
+## 🔧 Entwicklung
+
+### Verfügbare Scripts
+
+```bash
+npm start          # Development Server
+npm run build      # Production Build
+npm run test       # Unit Tests
+npm run watch      # Build mit Watch Mode
+```
+
+### PowerShell Probleme (Windows)
+
+Falls PowerShell Skript-Ausführung blockiert:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+npm install
+```
+
+## 📋 TODO / Roadmap
+
+- [ ] Backend Integration (Node.js/Express)
+- [ ] Datenbankanbindung (PostgreSQL + MongoDB)
+- [ ] Echte API-Endpoints
+- [ ] Weitere Dashboard-Features
+- [ ] Mobile App (Ionic/Capacitor)
+
+## 🤝 Beitragen
+
+1. Fork das Repository
+2. Erstelle einen Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Committe deine Änderungen (`git commit -m 'Add some AmazingFeature'`)
+4. Push zum Branch (`git push origin feature/AmazingFeature`)
+5. Öffne einen Pull Request
+
+## 📞 Support
+
+Bei Problemen:
+1. Prüfe die [Issues](https://github.com/D7POL/HCMS/issues)
+2. Erstelle ein neues Issue mit Fehlerbeschreibung
+3. Kontaktiere das Team
+
+---
+
+**Entwickelt mit ❤️ für das HCMS Projekt**
