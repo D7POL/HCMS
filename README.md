@@ -46,6 +46,24 @@ npx ng serve --open
 - **Angular Router** mit lazy loading
 - **Reactive Forms** für Login
 
+## 🐳 Dockerisierte Full-Stack-Variante
+
+Schnellstart (Docker Desktop erforderlich):
+
+1. Stack starten:
+   - PowerShell: `./scripts/start.ps1`
+2. Frontend: `http://localhost:8080`
+3. API-Health: `http://localhost:3000/health`
+
+Enthaltene Services (docker-compose.yml):
+- Frontend: Angular Build via Nginx
+- API: Node.js + Express (TypeScript)
+- Datenbanken: Postgres 16, MongoDB 7
+
+Lokale Entwicklung:
+- Angular Dev-Server: `npm start`
+- API Dev (im Ordner `backend`): `npm run start:dev`
+
 ## 📱 Features
 
 - ✅ **Mock Authentication** mit 2 Test-Usern

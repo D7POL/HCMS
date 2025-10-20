@@ -1,0 +1,76 @@
+name: enabiz-stack
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: enabiz-frontend:latest
+    depends_on:
+      - api
+    ports:
+      - "8080:80"
+    networks:
+      - enabiz
+
+  api:
+    build:
+      context: ./backend
+      target: build
+    image: enabiz-api:latest
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongo:
+        condition: service_healthy
+    environment:
+      - PORT=3000
+      - DATABASE_URL_POSTGRES=postgres://postgres:postgres@postgres:5432/enabiz
+      - DATABASE_URL_MONGO=mongodb://mongo:27017/enabiz
+    ports:
+      - "3000:3000"
+    command: ["node", "dist/index.js"]
+    networks:
+      - enabiz
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_DB=enabiz
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    networks:
+      - enabiz
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.runCommand({ ping: 1 })"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    networks:
+      - enabiz
+
+volumes:
+  pgdata:
+  mongodata:
+
+networks:
+  enabiz:
+    driver: bridge
+
+
+
